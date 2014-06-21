@@ -4,4 +4,7 @@
 	<string name="elv_undo_all">Undo All</string>
 	<string name="elv_item_deleted">Item deleted</string>
 	<string name="elv_n_items_deleted">%1$s items deleted</string>
+	
+	<string name="elv_task_deleted">Task completed</string>
+	<string name="elv_n_tasks_deleted">%1$s tasks completed</string>
 </resources>

@@ -56,7 +56,24 @@ import java.util.TreeSet;
  * @author Tim Roes <mail@timroes.de>
  */
 public class EnhancedListView extends ListView {
+	
+	public enum ListItemType {
+		Simple,
+		Task
+	}
 
+	
+	public ListItemType type;
+	
+	public void setType(ListItemType type) {
+		this.type = type;
+	}
+	
+	public ListItemType getType() {
+		return type;
+	}
+	
+	
     /**
      * Defines the style in which <i>undos</i> should be displayed and handled in the list.
      * Pass this to {@link #setUndoStyle(de.timroes.android.listview.EnhancedListView.UndoStyle)}
@@ -884,14 +901,21 @@ public class EnhancedListView extends ListView {
     private void changePopupText() {
         String msg = null;
         if(mUndoActions.size() > 1) {
-            msg = getResources().getString(R.string.elv_n_items_deleted, mUndoActions.size());
+        	switch(type) {
+        	case Task: msg = getResources().getString(R.string.elv_n_tasks_deleted, mUndoActions.size()); break;
+        	default: msg = getResources().getString(R.string.elv_n_items_deleted, mUndoActions.size()); break;
+        	}
+            
         } else if(mUndoActions.size() >= 1) {
             // Set title from single undoable or when no multiple deletion string
             // is given
             msg = mUndoActions.get(mUndoActions.size() - 1).getTitle();
 
             if(msg == null) {
-                msg = getResources().getString(R.string.elv_item_deleted);
+            	switch(type) {
+            	case Task: msg = getResources().getString(R.string.elv_task_deleted); break;
+            	default: msg = getResources().getString(R.string.elv_item_deleted); break;
+            	}
             }
         }
         mUndoPopupTextView.setText(msg);

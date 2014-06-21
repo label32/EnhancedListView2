@@ -48,6 +48,8 @@ public final class R {
     public static final class string {
         public static int elv_item_deleted=0x7f070002;
         public static int elv_n_items_deleted=0x7f070003;
+        public static int elv_n_tasks_deleted=0x7f070005;
+        public static int elv_task_deleted=0x7f070004;
         public static int elv_undo=0x7f070000;
         public static int elv_undo_all=0x7f070001;
     }
