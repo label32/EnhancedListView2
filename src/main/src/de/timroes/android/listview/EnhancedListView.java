@@ -440,6 +440,9 @@ public class EnhancedListView extends ListView {
      *      method.
      */
     public EnhancedListView enableSwipeToDismiss() {
+    	
+    	if(type == null)
+    		type = ListItemType.Simple;
 
         if(mDismissCallback == null) {
             throw new IllegalStateException("You must pass an OnDismissCallback to the list before enabling Swipe to Dismiss.");
